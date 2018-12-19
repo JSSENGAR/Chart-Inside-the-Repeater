@@ -5,7 +5,7 @@
  //require name space //
  using System.Web.UI.DataVisualization.Charting;
  
- SqlCommand cmdptch = new SqlCommand("select ScholarID, mstClassSubjects.SubjectName, Marks, AvgMarks, MAXMarks from MarksRegister join ResultAnalysis on ResultAnalysis.ExamID = MarksRegister.ExamID and  MarksRegister.ExamID = '2' and ResultAnalysis.SubID = MarksRegister.SubID and MarksRegister.ScholarID = '" + (rpItem.FindControl("ScholarIDLabel") as Label).Text + "' and MarksRegister.SessionID = ResultAnalysis.SessionID and MarksRegister.SessionID = '" + Session["SessionID"].ToString() + "' join mstClassSubjects on mstClassSubjects.SubID=MarksRegister.SubID and mstClassSubjects.SessionID=MarksRegister.SessionID order by ResultAnalysis.SubID", con);
+ SqlCommand cmdptch = new SqlCommand("select ScholarID, SubjectName, Marks, AvgMarks, MAXMarks from MarksRegister", con);
                 DataTable dtptch = new DataTable();
                 SqlDataAdapter sdaptch = new SqlDataAdapter(cmdptch);
                 sdaptch.Fill(dtptch);
