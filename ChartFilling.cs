@@ -10,6 +10,8 @@
                 SqlDataAdapter sdaptch = new SqlDataAdapter(cmdptch);
                 sdaptch.Fill(dtptch);
                 
+                (rpItem.FindControl("AChart") as Chart).ChartAreas["ChartArea1"].AxisY.Minimum = 0;
+                (rpItem.FindControl("AChart") as Chart).ChartAreas["ChartArea1"].AxisY.Maximum = 50;
 
                 (rpItem.FindControl("AChart") as Chart).DataSource = dtptch ;
 
